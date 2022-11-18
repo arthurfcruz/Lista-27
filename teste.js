@@ -1,10 +1,20 @@
 class Funcionario{
     Nome
     Salario
+
+    constructor(nome, salario) {
+        this.Nome = nome
+        this.Salario = salario
+    }
 }
 
 class Gerente extends Funcionario{
     Departamento
+
+    constructor(nome, salario, departamento) {
+        super(nome, salario)
+        this.Departamento = departamento
+    }
 
     exibirInformacoes(){
         console.log(this.Nome, this.Salario, this.Departamento)
@@ -27,12 +37,21 @@ class Vendedor extends Funcionario{
 class Produto{
     Nome
     Valor
+
+    constructor(nome, valor) {
+        this.Nome = nome
+        this.Valor = valor
+    }
 }
 
 class Venda{
     Vendedor
     ListaProdutos = []
     ValorTotal
+
+    constructor(vendedor) {
+        this.Vendedor = vendedor
+    }
 
     AdicionarProduto() {
         let produto = new Produto()
@@ -50,3 +69,9 @@ class Venda{
         console.log(this.Vendedor.Nome, this.ValorTotal)
     }
 }
+
+let gerente = new Gerente("Giovanni", 10000, "ensinamentos")
+
+let vendedor = new Vendedor("Argollo", 2500, 5)
+
+let venda = new Venda(vendedor)
